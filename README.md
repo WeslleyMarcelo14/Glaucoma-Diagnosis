@@ -1,77 +1,77 @@
 # Glaucoma Diagnosis
 
-Projeto de diagnóstico de glaucoma utilizando imagens de fundo de olho do dataset PAPILA.
+A glaucoma diagnosis project using fundus images from the PAPILA dataset.
 
-Este projeto é dividido em **duas partes**:
+This project is divided into **two parts**:
 
-| Parte | Área | Contexto |
-|-------|------|----------|
-| **Segmentação do Disco Óptico** | Visão Computacional | Disciplina de Visão Computacional - PPGI/UTFPR (Mestrado) |
-| **Processamento Digital de Imagens** | PDI | Iniciação Científica - UTFPR (Graduação) |
+| Part | Area | Context |
+|------|------|---------|
+| **Optic Disc Segmentation** | Computer Vision | Computer Vision Course - PPGI/UTFPR (Master's Program) |
+| **Digital Image Processing** | DIP | Scientific Initiation - UTFPR (Undergraduate Research) |
 
 ---
 
 ## Dataset
 
-Este projeto utiliza o dataset **PAPILA** (PApular PILsen glaucomA):
+This project uses the **PAPILA** (PApular PILsen glaucomA) dataset:
 
-| Recurso | Link |
-|---------|------|
+| Resource | Link |
+|----------|------|
 | Paper | [PAPILA: Dataset for Glaucoma Assessment](https://www.nature.com/articles/s41597-022-01388-1) |
 | Download | [Figshare Repository](https://figshare.com/articles/dataset/PAPILA/14798004?file=35013982) |
 
 ---
 
-## Estrutura do Projeto
+## Project Structure
 
 ```
 glaucoma-diagnosis/
 │
-├── src/                          # Código fonte
+├── src/                          # Source code
 │   │
-│   │ # ══════ VISÃO COMPUTACIONAL (Mestrado) ══════
-│   ├── code.ipynb                # Análise principal
-│   ├── experiment1.ipynb         # Experimento 1: U-Net Baseline
-│   ├── experiment2.ipynb         # Experimento 2: CLAHE + Deep Supervision
-│   ├── experiment3.ipynb         # Experimento 3: Attention U-Net
+│   │ # ══════ COMPUTER VISION (Master's) ══════
+│   ├── code.ipynb                # Main analysis
+│   ├── experiment1.ipynb         # Experiment 1: U-Net Baseline
+│   ├── experiment2.ipynb         # Experiment 2: CLAHE + Deep Supervision
+│   ├── experiment3.ipynb         # Experiment 3: Attention U-Net
 │   │
-│   │ # ══════ PDI - INICIAÇÃO CIENTÍFICA ══════
-│   └── dbscan.m                  # Clustering DBSCAN
+│   │ # ══════ DIP - SCIENTIFIC INITIATION ══════
+│   └── dbscan.m                  # DBSCAN clustering
 │
-├── main.m                        # Script principal MATLAB (IC)
-├── utils/                        # Funções utilitárias
-├── results/                      # Resultados
-├── HelpCode/                     # Código auxiliar
+├── main.m                        # Main MATLAB script (SI)
+├── utils/                        # Utility functions
+├── results/                      # Output results
+├── HelpCode/                     # Helper code
 │
-│ # ══════ DADOS (não incluídos no repositório) ══════
-├── FundusImages/                 # Imagens de fundo de olho
-├── ExpertsSegmentations/         # Segmentações dos especialistas
-└── ClinicalData/                 # Dados clínicos dos pacientes
+│ # ══════ DATA (not included in repository) ══════
+├── FundusImages/                 # Fundus images
+├── ExpertsSegmentations/         # Expert segmentations
+└── ClinicalData/                 # Patient clinical data
 ```
 
 ---
 
-## Parte 1: Visão Computacional (Mestrado PPGI)
+## Part 1: Computer Vision (Master's Program - PPGI)
 
-Segmentação do disco óptico utilizando deep learning com diferentes arquiteturas U-Net.
+Optic disc segmentation using deep learning with different U-Net architectures.
 
-### Experimentos
+### Experiments
 
-| # | Modelo | Descrição |
-|---|--------|-----------|
-| 1 | **U-Net Baseline** | ResNet50 encoder (ImageNet), data augmentation básico, BCE + Dice loss |
-| 2 | **U-Net Enhanced** | CLAHE, augmentations médicas (Elastic, Grid, Optical), Deep Supervision, TTA |
+| # | Model | Description |
+|---|-------|-------------|
+| 1 | **U-Net Baseline** | ResNet50 encoder (ImageNet), basic data augmentation, BCE + Dice loss |
+| 2 | **U-Net Enhanced** | CLAHE, medical augmentations (Elastic, Grid, Optical), Deep Supervision, TTA |
 | 3 | **Attention U-Net** | Attention Gates, SE blocks, ASPP, Focal Loss |
 
-### Resultados
+### Results
 
-| Experimento | Modelo | Dice Score | IoU |
-|:-----------:|--------|:----------:|:---:|
+| Experiment | Model | Dice Score | IoU |
+|:----------:|-------|:----------:|:---:|
 | 1 | U-Net (ResNet50) | **0.9607** | **0.9252** |
 | 2 | U-Net + Deep Supervision | 0.9604 | 0.9246 |
 | 3 | Attention U-Net | 0.9499 | 0.9057 |
 
-### Requisitos (Python)
+### Requirements (Python)
 
 ```
 Python 3.x
@@ -84,57 +84,57 @@ Jupyter Notebook
 
 ---
 
-## Parte 2: Processamento Digital de Imagens (Iniciação Científica)
+## Part 2: Digital Image Processing (Scientific Initiation)
 
-Análise e processamento de imagens de fundo de olho utilizando técnicas clássicas de PDI.
+Fundus image analysis and processing using classical DIP techniques.
 
-### Requisitos (MATLAB)
+### Requirements (MATLAB)
 
 ```
-MATLAB R2020a ou superior
+MATLAB R2020a or later
 Image Processing Toolbox
 Statistics and Machine Learning Toolbox
 ```
 
 ---
 
-## Instalação
+## Installation
 
 ```bash
-# Clonar repositório
+# Clone repository
 git clone https://github.com/yourusername/glaucoma-diagnosis.git
 cd glaucoma-diagnosis
 
-# Instalar dependências Python
+# Install Python dependencies
 pip install torch torchvision segmentation-models-pytorch albumentations opencv-python numpy pandas scikit-image jupyter
 
-# Baixar o dataset PAPILA e extrair na raiz do projeto
+# Download the PAPILA dataset and extract to project root
 ```
 
 ---
 
-## Uso
+## Usage
 
-**Visão Computacional (Python):**
+**Computer Vision (Python):**
 ```bash
 jupyter notebook
-# Abrir os notebooks em src/
+# Open notebooks in src/
 ```
 
-**PDI (MATLAB):**
+**DIP (MATLAB):**
 ```matlab
-% Executar o script principal
+% Run main script
 run('main.m')
 ```
 
 ---
 
-## Licença
+## License
 
-Projeto para fins educacionais e de pesquisa.
+This project is for educational and research purposes.
 
 ---
 
-## Referências
+## References
 
 1. Kovalyk, O., Morales-Sánchez, J., Verdú-Monedero, R. et al. **PAPILA: Dataset for Glaucoma Assessment**. *Sci Data* 9, 291 (2022). [DOI](https://doi.org/10.1038/s41597-022-01388-1)
